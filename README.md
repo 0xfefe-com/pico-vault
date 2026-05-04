@@ -47,7 +47,7 @@ Document everything in maximum 6 pages.
 
 Workflow and tips: 
 
-1. Connect the Pico to your computer and try to communicate with it.
+1. Connect the Pico to your computer and try to communicate with the Pico Vault.
 2. Figure out how the PIN is verified. 
   - You will need to do some reverse engineering!
   - For your Pico ID, only the `.uf2` file is available. This is the firmware flashing format used by Pico. The `scripts/uf2_to_bin.py` can transform this to a raw binary for you, which can be loaded into Ghidra and reverse engineered.
@@ -59,6 +59,6 @@ Workflow and tips:
   - Start with how to verify a single entry, then finish the bruteforcer.
   - To verify your implementation, there might be some test vectors in the firmware.
   - The pin for Pico ID `0000000000000000` is `00000000`.
-4. If you have found the PIN, you can check that the result is correct with `scripts/pico_vault_key_validate.py`.
-  - Feed it the secret you have found and the public key matching the ID of your Pico. The public key is available in this repository.
+4. If you have found the PIN, enter it to the Pico Vault, and recover the private key!
+  - You can check that the result is correct with `scripts/pico_vault_key_validate.py`. Give this script the private key you found in the Pico Vault, and the `ec_public.pem` corresponding to your Pico ID.
 
