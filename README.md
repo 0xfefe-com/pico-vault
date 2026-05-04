@@ -34,7 +34,7 @@ Device Information
 
 In Windows you can find the ID in device manager:
 
-![alt text](image.png)
+![alt text](./image.png)
 
 You can find the files corresponding to your chipid in `personalized/`.
 
