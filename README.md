@@ -1,3 +1,5 @@
+# Pico Vault
+
 In this repository you find the files for the pico-vault challenge, all personalized based on the ID of the pico2.
 To identify the ID of your pico2, you can use `lsusb verbose`:
 
@@ -29,6 +31,10 @@ Device Information
 
                        The device was asked to reboot back into application mode.
 ```
+
+In Windows you can find the ID in device manager:
+
+![alt text](image.png)
 
 You can find the files corresponding to your chipid in `personalized/`.
 
