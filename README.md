@@ -80,3 +80,8 @@ Tips for dealing with the binary specific to your device:
 - To load the raw binary into ghidra, you need to figure out the architecture (or language) and base address. In this case, you can find both by checking the "About program" in the project view of ghidra for the `0000000000000000.elf`, they are the same.
 - To disassemble the main properly, you need to manually tell ghidra to disassemble from Thumb mode instead of ARM32 mode. To do this, go to the address of main, right click the first byte of that function, and choose "Disassemble - Thumb".
 
+Readme update 2:
+
+The `0000000000000000.elf` was generated with and older version of the challenge code. A step that is performed after the correct PIN is found was missing, while each final binary does have this step. The PIN verification process you are trying to figure out is equal in both versions, but when you compare `0000000000000000.elf` to your personalized binary, the difference in steps after the PIN verification might be confusing.
+
+Inside of `personalized/0000000000000000/extra` there is now an additional `.elf` file, `personalized/0000000000000000/extra/pico_vault_updated.elf`, which exactly matches the binary for your personalized device.
