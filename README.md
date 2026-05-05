@@ -36,7 +36,7 @@ In Windows you can find the ID in device manager:
 
 ![alt text](./image.png)
 
-You can find the files corresponding to your chipid in `personalized/`.
+You can find the files corresponding to the chipid of your Pico in `personalized/`.
 
 To help you solving the challenge and checking your solution, there are some scripts in `scripts/`.
 
