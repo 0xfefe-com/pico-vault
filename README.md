@@ -68,3 +68,15 @@ Workflow and tips:
 4. If you have found the PIN, enter it to the Pico Vault, and recover the private key!
   - You can check that the result is correct with `scripts/pico_vault_key_validate.py`. Give this script the private key you found in the Pico Vault, and the `ec_public.pem` corresponding to your Pico ID.
 
+Readme update 1:
+
+There was a small bug in the challenge due to mixing lowercase and uppercase Pico IDs. If you have managed to bruteforce a PIN, but it does not work on the device itself, please send us an email with the PIN your recovered, and then we will check manually if you found the correct PIN or not.
+
+Tips for dealing with the binary specific to your device:
+
+- The code running on each device is the same, but the secrets are different. Reversing the process can be done with the `0000000000000000.elf`, but the eventual bruteforce needs to be done with the values you find in the binary specific to your device.
+- The binary is in uf2 format, this is compatible with the firmware flashing format for the Pico. To convert this into a "raw binary", use the `uf2_to_bin.py` script.
+- You can reflash this binary (for example because your performed 100 tries and the device wiped its key) by connecting the Pico while holding the BOOTSEL button, and then copying the uf2 file to the storage device it shows up as.
+- To load the raw binary into ghidra, you need to figure out the architecture (or language) and base address. In this case, you can find both by checking the "About program" in the project view of ghidra for the `0000000000000000.elf`, they are the same.
+- To disassemble the main properly, you need to manually tell ghidra to disassemble from Thumb mode instead of ARM32 mode. To do this, go to the address of main, right click the first byte of that function, and choose "Disassemble - Thumb".
+
